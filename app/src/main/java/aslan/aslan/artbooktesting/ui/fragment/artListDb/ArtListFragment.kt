@@ -89,6 +89,7 @@ class ArtListFragment @Inject constructor(
 
         fabActionButton.setOnClickListener {
             val action = ArtListFragmentDirections.navigateArtListToArtDetails(null)
+
             navController.navigate(action)
         }
     }
