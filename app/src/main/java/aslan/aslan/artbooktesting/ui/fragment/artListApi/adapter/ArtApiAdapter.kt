@@ -2,12 +2,9 @@ package aslan.aslan.artbooktesting.ui.fragment.artListApi.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import aslan.aslan.artbooktesting.db.model.entity.Art
 import aslan.aslan.artbooktesting.db.model.pojo.ArtApiDiffUtil
 import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
-import aslan.aslan.artbooktesting.util.Status
 import com.bumptech.glide.RequestManager
-import javax.inject.Inject
 
 
 class ArtApiAdapter (

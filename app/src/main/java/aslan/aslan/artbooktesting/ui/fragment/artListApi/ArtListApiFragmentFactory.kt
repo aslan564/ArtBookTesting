@@ -4,6 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import aslan.aslan.artbooktesting.ui.fragment.artDetail.ArtDetailsFragment
 import aslan.aslan.artbooktesting.ui.fragment.artListApi.adapter.ArtApiAdapter
+import aslan.aslan.artbooktesting.ui.fragment.artListDb.ArtListFragment
+import aslan.aslan.artbooktesting.ui.fragment.preview.PreviewFragment
 import com.bumptech.glide.RequestManager
 import javax.inject.Inject
 
@@ -17,6 +19,12 @@ class ArtListApiFragmentFactory @Inject constructor(
             }
             ArtDetailsFragment::class.java.name -> {
                 ArtDetailsFragment(glide)
+            }
+            ArtListFragment::class.java.name -> {
+                ArtListFragment(glide)
+            }
+            PreviewFragment::class.java.name -> {
+                PreviewFragment(glide)
             }
             else -> {
                 super.instantiate(classLoader, className)

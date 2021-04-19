@@ -14,24 +14,27 @@
 
         <ImageView
             android:id="@+id/image_view_art"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="250dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_add_photo" />
+            android:src="@drawable/ic_add_photo"
+            android:contentDescription="@string/art_image" />
 
         <EditText
             android:id="@+id/edit_text_art_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/art_name"
-            android:fontFamily="@font/roboto_italic"
             android:layout_margin="@dimen/edit_text_10margin"
-            app:layout_constraintTop_toBottomOf="@+id/image_view_art"
+            android:fontFamily="@font/roboto_italic"
+            android:hint="@string/art_name"
             app:layout_constraintEnd_toEndOf="@id/image_view_art"
-            app:layout_constraintStart_toStartOf="@id/image_view_art" />
+            app:layout_constraintStart_toStartOf="@id/image_view_art"
+            app:layout_constraintTop_toBottomOf="@+id/image_view_art"
+            android:inputType="text"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/edit_text_artist_name"
@@ -42,7 +45,9 @@
             android:layout_margin="@dimen/edit_text_10margin"
             app:layout_constraintTop_toBottomOf="@+id/edit_text_art_name"
             app:layout_constraintEnd_toEndOf="@id/image_view_art"
-            app:layout_constraintStart_toStartOf="@id/image_view_art" />
+            app:layout_constraintStart_toStartOf="@id/image_view_art"
+            android:inputType="text"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/edit_text_art_year"
@@ -53,7 +58,9 @@
             android:layout_margin="@dimen/edit_text_10margin"
             app:layout_constraintTop_toBottomOf="@+id/edit_text_artist_name"
             app:layout_constraintEnd_toEndOf="@id/image_view_art"
-            app:layout_constraintStart_toStartOf="@id/image_view_art" />
+            app:layout_constraintStart_toStartOf="@id/image_view_art"
+            android:importantForAutofill="no"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/button_save"

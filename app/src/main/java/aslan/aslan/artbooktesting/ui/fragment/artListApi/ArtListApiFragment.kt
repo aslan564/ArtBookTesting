@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import aslan.aslan.artbooktesting.databinding.FragmentArtListApiBinding
+import aslan.aslan.artbooktesting.db.model.entity.Art
 import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
 import aslan.aslan.artbooktesting.ui.fragment.artListApi.adapter.ArtApiAdapter
 import aslan.aslan.artbooktesting.viewModel.artListFromApi.ArtFromApiViewModel

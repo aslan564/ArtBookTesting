@@ -4,14 +4,17 @@ import android.view.View
 import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.*
+import aslan.aslan.artbooktesting.db.model.entity.Art
 import aslan.aslan.artbooktesting.db.model.pojo.ImageResponsePOJO
 import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
 import aslan.aslan.artbooktesting.db.network.NetworkResult
 import aslan.aslan.artbooktesting.repository.artInterface.ImageRepository
 import aslan.aslan.artbooktesting.util.Status
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -64,6 +67,7 @@ class ArtFromApiViewModel @Inject constructor(
             is NetworkResult.Success<*> -> {
                 val data = response.result as ImageResponsePOJO
                 val listArt = data.hits
+
                 _imageListFromApi.value = listArt
             }
             is NetworkResult.Failure -> {
@@ -73,4 +77,21 @@ class ArtFromApiViewModel @Inject constructor(
         _uiStatus.value = Status.STABLE
     }
 
+
+    /*
+    *
+    *  {
+                    listArt.map {
+                        Art(
+                            id = it.id.toLong(),
+                            artistName = "bosdu",
+                            name = "bosdu",
+                            previewURL = it.previewURL,
+                            type = it.type,
+                            userId = it.userId,
+                            largeImageURL = it.largeImageURL,
+                            year = 1
+                        )
+                    }
+                }*/
 }

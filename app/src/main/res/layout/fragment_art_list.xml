@@ -5,6 +5,14 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <import type="aslan.aslan.artbooktesting.util.Status" />
+
+        <variable
+            name="viewModelArt"
+            type="aslan.aslan.artbooktesting.viewModel.artListFromDb.ArtDbViewModel" />
+
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -32,21 +40,23 @@
                 android:id="@+id/recycler_list_arts"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:clipToPadding="false"
                 android:padding="@dimen/recycler_6padding"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:spanCount="3"
                 tools:listitem="@layout/layout_item_art" />
+
             <ProgressBar
-                android:id="@+id/progressBar_db_art_list"
+                android:id="@+id/progressBar_api_art_list"
                 style="?android:attr/progressBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/recycler_list_arts"
-                app:layout_constraintEnd_toEndOf="@+id/recycler_list_arts"
+                android:visibility="@{viewModelArt.uiState==Status.LOADING ? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/recycler_list_arts"
                 app:layout_constraintTop_toTopOf="@+id/recycler_list_arts" />
         </androidx.constraintlayout.widget.ConstraintLayout>

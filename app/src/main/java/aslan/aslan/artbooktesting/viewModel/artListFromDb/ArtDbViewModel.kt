@@ -1,6 +1,8 @@
 package aslan.aslan.artbooktesting.viewModel.artListFromDb
 
+import android.app.Application
 import androidx.lifecycle.*
+import aslan.aslan.artbooktesting.db.model.entity.Art
 import aslan.aslan.artbooktesting.db.model.pojo.ImageResponsePOJO
 import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
 import aslan.aslan.artbooktesting.db.network.NetworkResult
@@ -11,32 +13,31 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ArtDbViewModel @Inject  constructor(
-    private val repository: ImageRepository
-) : ViewModel() {
+class ArtDbViewModel @Inject constructor(
+    private val repository: ImageRepository, application: Application
+) : AndroidViewModel(application) {
 
-    val artList = repository.getAllArtFromDB()
+
     private var _uiState = MutableLiveData(Status.STABLE)
     val uiState: LiveData<Status>
         get() = _uiState
 
-    private var _imageListFromApi = MutableLiveData<List<ImageResultPOJO>>(listOf())
-    val imageListFromApi: LiveData<List<ImageResultPOJO>>
-        get() = _imageListFromApi
 
-    fun fetchImages() = viewModelScope.launch {
-        _uiState.value = Status.LOADING
-        when (val responsePOJO = repository.getAllArtFromApi()) {
-            is NetworkResult.Success<*> -> {
-                val data = responsePOJO.result as ImageResponsePOJO
-                val listArt = data.hits
-                _imageListFromApi.value = listArt
-            }
-            is NetworkResult.Failure -> {
-                _uiState.value=Status.ERROR
-            }
+    fun fetchImages(onComplete: (LiveData<List<Art>>) -> Unit) = viewModelScope.launch {
+        _uiState.postValue(Status.LOADING)
+        repository.getAllArtFromDB {
+            onComplete(it)
+            _uiState.postValue(Status.SUCCESS)
         }
-        _uiState.postValue(Status.STABLE)
     }
+
+    fun deleteArt(art: Art)=viewModelScope.launch {
+        _uiState.postValue(Status.LOADING)
+        repository.deleteArt(art){
+            _uiState.postValue(Status.SUCCESS)
+        }
+
+    }
+
 
 }

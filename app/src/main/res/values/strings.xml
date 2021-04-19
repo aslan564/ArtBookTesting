@@ -3,6 +3,7 @@
     <string name="add_art_fragment">Add Art</string>
     <string name="art_list_api_fragment">Art List From Api</string>
     <string name="art_details_fragment">Art Details</string>
+    <string name="preview_fragment">Preview</string>
     <string name="fab_button">add art Image</string>
     <string name="art_image">Art Image</string>
     <string name="search_image">Search Image</string>
@@ -10,4 +11,5 @@
     <string name="artist_name">Artist Name</string>
     <string name="art_year">Enter art year</string>
     <string name="save_image">Save Image</string>
+    <string name="send_art_other_fragment">Send Image</string>
 </resources>

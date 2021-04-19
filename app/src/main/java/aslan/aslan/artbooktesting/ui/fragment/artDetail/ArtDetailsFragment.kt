@@ -20,13 +20,12 @@ import java.lang.Exception
 
 @AndroidEntryPoint
 class ArtDetailsFragment @Inject constructor(
-    val glide : RequestManager
-): Fragment() {
+    val glide: RequestManager
+) : Fragment() {
 
-    private  val TAG = "ArtDetailsFragment"
+    private val TAG = "ArtDetailsFragment"
     private var _binding: FragmentArtDetailsBinding? = null
     private val binding get() = _binding!!
-    private var artFromApi: ImageResultPOJO? = null
     private val navController by lazy { findNavController() }
     private val viewModel by viewModels<ArtDetailsViewModel>()
 
@@ -48,26 +47,25 @@ class ArtDetailsFragment @Inject constructor(
 
     override fun onStart() {
         super.onStart()
-        arguments?.let {
-            artFromApi = ArtDetailsFragmentArgs.fromBundle(it).imageUri
-            if (artFromApi != null) {
-                Glide.with(requireContext())
-                    .load(artFromApi).into(binding.imageViewArt)
-            }
-        }
     }
 
     private fun bindUI(): Unit = with(binding) {
         lifecycleOwner = this@ArtDetailsFragment
 
-        val callback = object : OnBackPressedCallback(true) {
+       /* val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().popBackStack()
             }
 
         }
         requireActivity().onBackPressedDispatcher.addCallback(callback)
-
+*/
+        arguments?.let {
+            val artFromApi = ArtDetailsFragmentArgs.fromBundle(it).StringSendArtOtherFragment
+            artFromApi?.let {
+                glide.load(artFromApi.largeImageURL).into(imageViewArt)
+            }
+        }
 
         buttonSave.setOnClickListener {
             val name = editTextArtName.text.toString()
@@ -88,13 +86,15 @@ class ArtDetailsFragment @Inject constructor(
                         .show()
                     return@setOnClickListener
                 }
-                artFromApi?.let {
-                    viewModel.addImageToDb(it, name, yearInt, artistName){
-                        navController.navigate(ArtDetailsFragmentDirections.artDetailsFragmentToAddArtFragment())
+                arguments?.let { bundle ->
+                    val artFromApi = ArtDetailsFragmentArgs.fromBundle(bundle).StringSendArtOtherFragment
+                    artFromApi?.let {
+                        viewModel.addImageToDb(it, name, yearInt, artistName) {
+                            navController.navigate(ArtDetailsFragmentDirections.artDetailsFragmentToAddArtFragment())
+                        }
                     }
                 }
             }
-
 
         }
         imageViewArt.setOnClickListener {

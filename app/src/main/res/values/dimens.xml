@@ -3,4 +3,6 @@
     <dimen name="default_16margin">16dp</dimen>
     <dimen name="recycler_6padding">6dp</dimen>
     <dimen name="edit_text_10margin">10dp</dimen>
+    <dimen name="default_18sp">18sp</dimen>
+    <dimen name="default_20sp">20sp</dimen>
 </resources>

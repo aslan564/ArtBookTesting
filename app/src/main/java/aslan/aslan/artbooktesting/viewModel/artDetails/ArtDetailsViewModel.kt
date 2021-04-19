@@ -28,7 +28,9 @@ class ArtDetailsViewModel @Inject constructor(
                 artistName = artistName,
                 type = art.type,
                 name = name,
-                userId = art.userId
+                largeImageURL = art.largeImageURL,
+                userId = art.userId,
+                previewURL = art.previewURL
             )
         }
         repository.insertArt(art = response){
