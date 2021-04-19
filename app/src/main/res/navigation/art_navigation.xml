@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_art_navigation"
+    app:startDestination="@id/add_art_fragment">
+
+
+    <fragment
+        android:id="@+id/add_art_fragment"
+        android:label="@string/add_art_fragment"
+        android:name="aslan.aslan.artbooktesting.ui.fragment.artListDb.ArtListFragment"
+        tools:layout="@layout/fragment_art_list" >
+        <action
+            android:id="@+id/navigate_artList_to_artDetails"
+            app:destination="@+id/art_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/art_details"
+        android:name="aslan.aslan.artbooktesting.ui.fragment.artDetail.ArtDetailsFragment"
+        android:label="@string/art_details_fragment"
+        tools:layout="@layout/fragment_art_details">
+        <action
+            android:id="@+id/art_details_to_art_list_api"
+            app:destination="@+id/art_list_api" />
+        <action
+            android:id="@+id/art_details_fragment_to_add_art_fragment"
+            app:destination="@+id/add_art_fragment" />
+        <argument
+            android:name="imageUri"
+            app:argType="aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/art_list_api"
+        android:name="aslan.aslan.artbooktesting.ui.fragment.artListApi.ArtListApiFragment"
+        android:label="@string/art_list_api_fragment"
+        tools:layout="@layout/fragment_art_list_api" >
+        <action
+            android:id="@+id/art_list_api_to_art_details"
+            app:destination="@+id/art_details" />
+    </fragment>
+
+
+
+</navigation>
