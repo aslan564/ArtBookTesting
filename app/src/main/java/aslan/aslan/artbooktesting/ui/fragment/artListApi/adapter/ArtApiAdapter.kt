@@ -2,8 +2,8 @@ package aslan.aslan.artbooktesting.ui.fragment.artListApi.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import aslan.aslan.artbooktesting.db.model.pojo.ArtApiDiffUtil
-import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
+import aslan.aslan.artbooktesting.roomDB.model.pojo.ArtApiDiffUtil
+import aslan.aslan.artbooktesting.roomDB.model.pojo.ImageResultPOJO
 import com.bumptech.glide.RequestManager
 
 

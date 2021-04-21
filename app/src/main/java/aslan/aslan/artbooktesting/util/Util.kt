@@ -3,10 +3,10 @@ package aslan.aslan.artbooktesting.util
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import aslan.aslan.artbooktesting.R
-import aslan.aslan.artbooktesting.db.model.entity.Art
-import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
-import aslan.aslan.artbooktesting.db.model.pojo.ServerResponsePOJO
-import aslan.aslan.artbooktesting.db.network.NetworkResult
+import aslan.aslan.artbooktesting.roomDB.model.entity.Art
+import aslan.aslan.artbooktesting.roomDB.model.pojo.ImageResultPOJO
+import aslan.aslan.artbooktesting.roomDB.model.pojo.ServerResponsePOJO
+import aslan.aslan.artbooktesting.roomDB.network.NetworkResult
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.coroutines.Dispatchers

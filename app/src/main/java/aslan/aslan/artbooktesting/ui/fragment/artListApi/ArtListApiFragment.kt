@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import aslan.aslan.artbooktesting.databinding.FragmentArtListApiBinding
-import aslan.aslan.artbooktesting.db.model.entity.Art
-import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
+import aslan.aslan.artbooktesting.roomDB.model.pojo.ImageResultPOJO
 import aslan.aslan.artbooktesting.ui.fragment.artListApi.adapter.ArtApiAdapter
 import aslan.aslan.artbooktesting.viewModel.artListFromApi.ArtFromApiViewModel
 import com.bumptech.glide.RequestManager
@@ -43,7 +41,7 @@ class ArtListApiFragment @Inject constructor(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentArtListApiBinding.inflate(inflater, container, false)
         return binding.root
     }

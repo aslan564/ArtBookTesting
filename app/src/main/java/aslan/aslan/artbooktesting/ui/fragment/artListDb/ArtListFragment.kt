@@ -1,29 +1,19 @@
 package aslan.aslan.artbooktesting.ui.fragment.artListDb
 
+import android.accessibilityservice.AccessibilityService
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import aslan.aslan.artbooktesting.R
 import aslan.aslan.artbooktesting.databinding.FragmentArtListBinding
-import aslan.aslan.artbooktesting.db.model.entity.Art
-import aslan.aslan.artbooktesting.repository.ImageRepositoryImpl
 import aslan.aslan.artbooktesting.ui.fragment.artListDb.adapter.ArtDbAdapter
-import aslan.aslan.artbooktesting.util.Status
 import aslan.aslan.artbooktesting.viewModel.artListFromDb.ArtDbViewModel
 import com.bumptech.glide.RequestManager
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 

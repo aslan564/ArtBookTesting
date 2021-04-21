@@ -1,4 +1,4 @@
-package aslan.aslan.artbooktesting.ui.activity
+package aslan.aslan.artbooktesting.ui.activity.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

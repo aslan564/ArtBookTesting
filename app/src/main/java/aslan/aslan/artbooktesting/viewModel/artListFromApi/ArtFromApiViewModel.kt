@@ -1,20 +1,16 @@
 package aslan.aslan.artbooktesting.viewModel.artListFromApi
 
-import android.view.View
 import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.*
-import aslan.aslan.artbooktesting.db.model.entity.Art
-import aslan.aslan.artbooktesting.db.model.pojo.ImageResponsePOJO
-import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
-import aslan.aslan.artbooktesting.db.network.NetworkResult
+import aslan.aslan.artbooktesting.roomDB.model.pojo.ImageResponsePOJO
+import aslan.aslan.artbooktesting.roomDB.model.pojo.ImageResultPOJO
+import aslan.aslan.artbooktesting.roomDB.network.NetworkResult
 import aslan.aslan.artbooktesting.repository.artInterface.ImageRepository
 import aslan.aslan.artbooktesting.util.Status
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel

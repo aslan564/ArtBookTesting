@@ -1,4 +1,4 @@
-package aslan.aslan.artbooktesting.db.model.pojo
+package aslan.aslan.artbooktesting.roomDB.model.pojo
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

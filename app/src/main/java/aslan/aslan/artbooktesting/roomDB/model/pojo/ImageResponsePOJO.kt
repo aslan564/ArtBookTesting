@@ -1,4 +1,4 @@
-package aslan.aslan.artbooktesting.db.model.pojo
+package aslan.aslan.artbooktesting.roomDB.model.pojo
 
 data class ImageResponsePOJO(
     val hits: List<ImageResultPOJO>,

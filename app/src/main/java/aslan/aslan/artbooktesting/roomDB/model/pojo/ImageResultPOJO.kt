@@ -1,8 +1,7 @@
-package aslan.aslan.artbooktesting.db.model.pojo
+package aslan.aslan.artbooktesting.roomDB.model.pojo
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
-import aslan.aslan.artbooktesting.db.model.entity.Art
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 

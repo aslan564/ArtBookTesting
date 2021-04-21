@@ -2,30 +2,22 @@ package aslan.aslan.artbooktesting.dependencyInjection
 
 import android.content.Context
 import androidx.room.Room
-import aslan.aslan.artbooktesting.BuildConfig
 import aslan.aslan.artbooktesting.R
-import aslan.aslan.artbooktesting.db.ArtDao
-import aslan.aslan.artbooktesting.db.ArtDatabase
-import aslan.aslan.artbooktesting.db.network.service.ArtsService
+import aslan.aslan.artbooktesting.roomDB.ArtDao
+import aslan.aslan.artbooktesting.roomDB.ArtDatabase
+import aslan.aslan.artbooktesting.roomDB.network.service.ArtsService
 import aslan.aslan.artbooktesting.repository.ImageRepositoryImpl
 import aslan.aslan.artbooktesting.repository.artInterface.ImageRepository
 import aslan.aslan.artbooktesting.util.NetworkConstants
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
-import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -37,7 +29,7 @@ object AppModule {
         @Provides
         fun injectRoomDatabase(
             @ApplicationContext context: Context
-        ) = Room.databaseBuilder(context,ArtDatabase::class.java,"ArtBookDB").build()
+        ) = Room.databaseBuilder(context, ArtDatabase::class.java,"ArtBookDB").build()
 
         @Singleton
         @Provides

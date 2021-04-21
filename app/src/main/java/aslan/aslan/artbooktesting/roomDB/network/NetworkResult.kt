@@ -1,7 +1,6 @@
-package aslan.aslan.artbooktesting.db.network
+package aslan.aslan.artbooktesting.roomDB.network
 
 import java.lang.IllegalStateException
-import java.lang.StringBuilder
 
 sealed class NetworkResult {
     data class Success<T>(val result: T?) : NetworkResult()

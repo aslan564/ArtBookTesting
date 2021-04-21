@@ -1,4 +1,4 @@
-package aslan.aslan.artbooktesting.db.model.entity
+package aslan.aslan.artbooktesting.roomDB.model.entity
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil

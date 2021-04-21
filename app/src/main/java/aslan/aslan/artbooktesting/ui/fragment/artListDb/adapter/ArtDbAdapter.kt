@@ -3,8 +3,8 @@ package aslan.aslan.artbooktesting.ui.fragment.artListDb.adapter
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
-import aslan.aslan.artbooktesting.db.model.entity.Art
-import aslan.aslan.artbooktesting.db.model.entity.ArtDiffUtil
+import aslan.aslan.artbooktesting.roomDB.model.entity.Art
+import aslan.aslan.artbooktesting.roomDB.model.entity.ArtDiffUtil
 import com.bumptech.glide.RequestManager
 
 class ArtDbAdapter(

@@ -1,7 +1,6 @@
 package aslan.aslan.artbooktesting.ui.fragment.artDetail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +11,7 @@ import androidx.fragment.app.viewModels
 import javax.inject.Inject
 import androidx.navigation.fragment.findNavController
 import aslan.aslan.artbooktesting.databinding.FragmentArtDetailsBinding
-import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
 import aslan.aslan.artbooktesting.viewModel.artDetails.ArtDetailsViewModel
-import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.Exception

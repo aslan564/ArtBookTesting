@@ -5,4 +5,5 @@
     <dimen name="edit_text_10margin">10dp</dimen>
     <dimen name="default_18sp">18sp</dimen>
     <dimen name="default_20sp">20sp</dimen>
+    <dimen name="defoult_5margin">5dp</dimen>
 </resources>

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="artModel"
-            type="aslan.aslan.artbooktesting.db.model.entity.Art" />
+            type="aslan.aslan.artbooktesting.roomDB.model.entity.Art" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,8 @@
             android:id="@+id/image_view_art"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_margin="@dimen/default_16margin"
+            android:layout_marginVertical="@dimen/default_16margin"
+            android:layout_marginHorizontal="@dimen/defoult_5margin"
             android:contentDescription="@string/art_image"
             android:padding="2dp"
             android:scaleType="centerCrop"

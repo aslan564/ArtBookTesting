@@ -3,8 +3,8 @@ package aslan.aslan.artbooktesting.viewModel.artDetails
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import aslan.aslan.artbooktesting.db.model.entity.Art
-import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
+import aslan.aslan.artbooktesting.roomDB.model.entity.Art
+import aslan.aslan.artbooktesting.roomDB.model.pojo.ImageResultPOJO
 import aslan.aslan.artbooktesting.repository.artInterface.ImageRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +19,7 @@ class ArtDetailsViewModel @Inject constructor(
 ) : AndroidViewModel(application) {
 
 
-    fun addImageToDb(art: ImageResultPOJO, name: String, yearInt: Int, artistName: String,onComplete:(id:Long)->Unit) = viewModelScope.launch {
+    fun addImageToDb(art: ImageResultPOJO, name: String, yearInt: Int, artistName: String, onComplete:(id:Long)->Unit) = viewModelScope.launch {
         val response= withContext(Dispatchers.Default){
 
             Art(

@@ -2,10 +2,7 @@ package aslan.aslan.artbooktesting.viewModel.artListFromDb
 
 import android.app.Application
 import androidx.lifecycle.*
-import aslan.aslan.artbooktesting.db.model.entity.Art
-import aslan.aslan.artbooktesting.db.model.pojo.ImageResponsePOJO
-import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
-import aslan.aslan.artbooktesting.db.network.NetworkResult
+import aslan.aslan.artbooktesting.roomDB.model.entity.Art
 import aslan.aslan.artbooktesting.repository.artInterface.ImageRepository
 import aslan.aslan.artbooktesting.util.Status
 import dagger.hilt.android.lifecycle.HiltViewModel

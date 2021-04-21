@@ -32,7 +32,7 @@
             app:destination="@+id/add_art_fragment" />
         <argument
             android:name="@string/send_art_other_fragment"
-            app:argType="aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO"
+            app:argType="aslan.aslan.artbooktesting.roomDB.model.pojo.ImageResultPOJO"
             app:nullable="true" />
     </fragment>
 
@@ -53,7 +53,7 @@
         tools:layout="@layout/fragment_preview" >
         <argument
             android:name="@string/send_art_other_fragment"
-            app:argType="aslan.aslan.artbooktesting.db.model.entity.Art"
+            app:argType="aslan.aslan.artbooktesting.roomDB.model.entity.Art"
             app:nullable="true" />
     </fragment>
 

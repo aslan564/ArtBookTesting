@@ -4,8 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import aslan.aslan.artbooktesting.databinding.LayoutItemArtApiBinding
-import aslan.aslan.artbooktesting.db.model.entity.Art
-import aslan.aslan.artbooktesting.db.model.pojo.ImageResultPOJO
+import aslan.aslan.artbooktesting.roomDB.model.pojo.ImageResultPOJO
 import com.bumptech.glide.RequestManager
 
 class ArtApiViewHolder(
