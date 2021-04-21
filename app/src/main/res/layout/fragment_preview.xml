@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="viewModelBinding"
+            type="aslan.aslan.artbooktesting.viewModel.preview.PreviewViewModel" />
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/default_16margin"
+            android:text="@{viewModelBinding.imageName}"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_view_art"
+            app:layout_constraintEnd_toEndOf="@+id/image_view_art"
+            app:layout_constraintStart_toStartOf="@+id/image_view_art"
+            app:layout_constraintTop_toTopOf="@+id/image_view_art"
+            app:layout_constraintVertical_bias="0.1"
+            tools:ignore="UnusedAttribute" />
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/image_view_art"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/preview_image"
+            app:imageLoadFromGlide="@{viewModelBinding.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

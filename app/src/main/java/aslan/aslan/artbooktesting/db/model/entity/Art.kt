@@ -21,7 +21,7 @@ data class Art(
 
 ):Parcelable
 
-class ArtDiffUtil : DiffUtil.ItemCallback<Art>() {
+val ArtDiffUtil =object : DiffUtil.ItemCallback<Art>() {
     override fun areItemsTheSame(oldItem: Art, newItem: Art): Boolean {
         return oldItem === newItem
     }

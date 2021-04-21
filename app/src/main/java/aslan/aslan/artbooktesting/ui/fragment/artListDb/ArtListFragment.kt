@@ -26,10 +26,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+
 @AndroidEntryPoint
 class ArtListFragment @Inject constructor(
     val glide: RequestManager
 ) : Fragment() {
+    companion object {
+        private const val TAG = "ArtListFragment"
+
+    }
+
     private var _binding: FragmentArtListBinding? = null
     private val binding get() = _binding!!
     private val navController by lazy { findNavController() }
@@ -44,8 +50,10 @@ class ArtListFragment @Inject constructor(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentArtListBinding.inflate(inflater, container, false)
+        Log.i(TAG, "onCreateView: called")
+        subscribeObserverData()
         return binding.root
     }
 
@@ -60,24 +68,20 @@ class ArtListFragment @Inject constructor(
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val layoutPositions = viewHolder.adapterPosition
-            val selectedArt = adapter.currentList[layoutPositions]
-            selectedArt?.let {
+            val selectedArt = adapter.arts[layoutPositions]
+            selectedArt.let {
                 viewModel.deleteArt(it)
             }
         }
 
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindUI()
+        Log.i(TAG, "onViewCreated: called")
     }
-
-    override fun onStart() {
-        super.onStart()
-        subscribeObserverData()
-    }
-
 
     private fun bindUI(): Unit = with(binding) {
         lifecycleOwner = this@ArtListFragment
@@ -96,23 +100,18 @@ class ArtListFragment @Inject constructor(
 
     override fun onDestroyView() {
         _binding = null
+        Log.i(TAG, "onDestroyView: called")
         super.onDestroyView()
     }
 
 
     private fun subscribeObserverData(): Unit = with(viewModel) {
-        uiState.observe(viewLifecycleOwner, {
-            if (it==Status.SUCCESS) {
-                return@observe
-            }else{
-                fetchImages { artObserver ->
-                    artObserver.observe(viewLifecycleOwner, {listArt->
-                        listArt?.let {arts->
-                            adapter.submitList(arts)
-                        }
-                    })
+        fetchImages { artObserver ->
+            artObserver.observe(viewLifecycleOwner, { listArt ->
+                listArt?.let { arts ->
+                    adapter.arts = arts
                 }
-            }
-        })
+            })
+        }
     }
 }

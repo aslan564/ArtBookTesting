@@ -3,7 +3,6 @@ package aslan.aslan.artbooktesting.ui.fragment.artListApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import aslan.aslan.artbooktesting.ui.fragment.artDetail.ArtDetailsFragment
-import aslan.aslan.artbooktesting.ui.fragment.artListApi.adapter.ArtApiAdapter
 import aslan.aslan.artbooktesting.ui.fragment.artListDb.ArtListFragment
 import aslan.aslan.artbooktesting.ui.fragment.preview.PreviewFragment
 import com.bumptech.glide.RequestManager

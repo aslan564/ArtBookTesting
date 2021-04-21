@@ -1,6 +1,7 @@
 package aslan.aslan.artbooktesting.ui.fragment.artDetail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +21,7 @@ import java.lang.Exception
 
 @AndroidEntryPoint
 class ArtDetailsFragment @Inject constructor(
-    val glide: RequestManager
+        val glide: RequestManager
 ) : Fragment() {
 
     private val TAG = "ArtDetailsFragment"
@@ -31,10 +32,10 @@ class ArtDetailsFragment @Inject constructor(
 
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentArtDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -52,14 +53,14 @@ class ArtDetailsFragment @Inject constructor(
     private fun bindUI(): Unit = with(binding) {
         lifecycleOwner = this@ArtDetailsFragment
 
-       /* val callback = object : OnBackPressedCallback(true) {
+        val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().popBackStack()
             }
 
         }
         requireActivity().onBackPressedDispatcher.addCallback(callback)
-*/
+
         arguments?.let {
             val artFromApi = ArtDetailsFragmentArgs.fromBundle(it).StringSendArtOtherFragment
             artFromApi?.let {
@@ -73,9 +74,9 @@ class ArtDetailsFragment @Inject constructor(
             val artistName = editTextArtistName.text.toString()
             if (name.isEmpty() || year.isEmpty() || artistName.isEmpty()) {
                 Toast.makeText(
-                    requireContext(),
-                    "Name, Year, Artist Name must be",
-                    Toast.LENGTH_SHORT
+                        requireContext(),
+                        "Name, Year, Artist Name must be",
+                        Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             } else {
@@ -83,7 +84,7 @@ class ArtDetailsFragment @Inject constructor(
                     year.toInt()
                 } catch (ex: Exception) {
                     Toast.makeText(requireContext(), "Year should be number", Toast.LENGTH_SHORT)
-                        .show()
+                            .show()
                     return@setOnClickListener
                 }
                 arguments?.let { bundle ->
@@ -100,5 +101,10 @@ class ArtDetailsFragment @Inject constructor(
         imageViewArt.setOnClickListener {
             navController.navigate(ArtDetailsFragmentDirections.artDetailsToArtListApi())
         }
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 }

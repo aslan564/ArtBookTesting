@@ -12,4 +12,5 @@
     <string name="art_year">Enter art year</string>
     <string name="save_image">Save Image</string>
     <string name="send_art_other_fragment">Send Image</string>
+    <string name="preview_image">Preview Image</string>
 </resources>
