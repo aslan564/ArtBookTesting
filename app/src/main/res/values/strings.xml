@@ -13,4 +13,5 @@
     <string name="save_image">Save Image</string>
     <string name="send_art_other_fragment">Send Image</string>
     <string name="preview_image">Preview Image</string>
+    <string name="start_activity_logo">Start Activity logo</string>
 </resources>
