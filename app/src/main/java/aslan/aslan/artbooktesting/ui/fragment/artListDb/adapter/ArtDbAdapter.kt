@@ -2,6 +2,7 @@ package aslan.aslan.artbooktesting.ui.fragment.artListDb.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import aslan.aslan.artbooktesting.roomDB.model.entity.Art
 import aslan.aslan.artbooktesting.roomDB.model.entity.ArtDiffUtil
@@ -10,7 +11,7 @@ import com.bumptech.glide.RequestManager
 class ArtDbAdapter(
     private val onClickImageApi: (Art) -> Unit,
     val glide: RequestManager
-) : RecyclerView.Adapter<ArtViewHolder>() {
+) : ListAdapter<Art,ArtViewHolder>(ArtDiffUtil()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtViewHolder {
@@ -18,10 +19,17 @@ class ArtDbAdapter(
     }
 
     override fun onBindViewHolder(holder: ArtViewHolder, position: Int) {
-        holder.bind(glide,arts[position],onClickImageApi)
+        holder.bind(glide,getItem(position),onClickImageApi)
     }
 
-    override fun getItemCount(): Int {
+
+
+}
+/*
+class ArtClickListener(val clickListener: (Art)->Unit){
+    fun onClickArt(art: Art)=clickListener(art)
+
+     override fun getItemCount(): Int {
         return arts.size
     }
 
@@ -30,5 +38,4 @@ class ArtDbAdapter(
     var arts: List<Art>
         get() = recyclerDifferConfig.currentList
         set(value) = recyclerDifferConfig.submitList(value)
-
-}
+}*/

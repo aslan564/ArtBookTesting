@@ -14,19 +14,24 @@ class ArtDbViewModel @Inject constructor(
     private val repository: ImageRepository, application: Application
 ) : AndroidViewModel(application) {
 
+    init {
+
+    }
 
     private var _uiState = MutableLiveData(Status.STABLE)
     val uiState: LiveData<Status>
         get() = _uiState
 
+    val art: LiveData<List<Art>>
+        get() = repository.getAllArtFromDB()
 
-    fun fetchImages(onComplete: (LiveData<List<Art>>) -> Unit) = viewModelScope.launch {
+   /* fun fetchImages(onComplete: (LiveData<List<Art>>) -> Unit) = viewModelScope.launch {
         _uiState.postValue(Status.LOADING)
         repository.getAllArtFromDB {
             onComplete(it)
             _uiState.postValue(Status.SUCCESS)
         }
-    }
+    }*/
 
     fun deleteArt(art: Art)=viewModelScope.launch {
         _uiState.postValue(Status.LOADING)

@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+       <!-- <variable
+            name="clickListener"
+            type="aslan.aslan.artbooktesting.ui.fragment.artListDb.adapter.ArtClickListener" />
+        android:onClick="@{()-> clickListener.onClickArt(artModel)}"
+        -->
         <variable
             name="artModel"
             type="aslan.aslan.artbooktesting.roomDB.model.entity.Art" />
@@ -14,6 +19,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -24,6 +30,7 @@
             android:layout_marginHorizontal="@dimen/defoult_5margin"
             android:contentDescription="@string/art_image"
             android:padding="2dp"
+            app:imageLoadFromGlide="@{artModel.largeImageURL}"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_add_photo"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -72,7 +79,7 @@
             app:layout_constraintStart_toEndOf="@+id/image_view_art"
             tools:text="Aslanov Aslan" />
 
-        <ProgressBar
+      <!--  <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
@@ -80,6 +87,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/image_view_art"
             app:layout_constraintEnd_toEndOf="@+id/image_view_art"
             app:layout_constraintStart_toStartOf="@+id/image_view_art"
-            app:layout_constraintTop_toTopOf="@+id/image_view_art" />
+            app:layout_constraintTop_toTopOf="@+id/image_view_art" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

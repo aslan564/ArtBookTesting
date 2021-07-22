@@ -24,9 +24,10 @@ class ImageRepositoryTestImpl(
         onComplete(true)
     }
 
-    override fun getAllArtFromDB(onComplete: (LiveData<List<Art>>) -> Unit) {
-        onComplete(liveDataArtList)
+    override fun getAllArtFromDB(): LiveData<List<Art>> {
+        return liveDataArtList
     }
+
 
     override suspend fun getAllArtFromApi(): NetworkResult {
         return NetworkResult.Success(artList)

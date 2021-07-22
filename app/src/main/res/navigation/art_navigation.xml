@@ -8,15 +8,24 @@
 
     <fragment
         android:id="@+id/add_art_fragment"
-        android:label="@string/add_art_fragment"
         android:name="aslan.aslan.artbooktesting.ui.fragment.artListDb.ArtListFragment"
-        tools:layout="@layout/fragment_art_list" >
+        android:label="@string/add_art_fragment"
+        tools:layout="@layout/fragment_art_list">
         <action
             android:id="@+id/navigate_artList_to_artDetails"
-            app:destination="@+id/art_details" />
+            app:destination="@id/art_details"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
         <action
             android:id="@+id/navigate_artList_to_preview"
-            app:destination="@+id/preview_image" />
+            app:destination="@+id/preview_image"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -26,12 +35,24 @@
         tools:layout="@layout/fragment_art_details">
         <action
             android:id="@+id/art_details_to_art_list_api"
-            app:destination="@+id/art_list_api" />
+            app:destination="@+id/art_list_api"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/gameFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/art_details_fragment_to_add_art_fragment"
-            app:destination="@+id/add_art_fragment" />
+            app:destination="@+id/add_art_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/add_art_fragment"
+            />
         <argument
-            android:name="@string/send_art_other_fragment"
+            android:name="sendArtOtherFragment"
             app:argType="aslan.aslan.artbooktesting.roomDB.model.pojo.ImageResultPOJO"
             app:nullable="true" />
     </fragment>
@@ -40,23 +61,43 @@
         android:id="@+id/art_list_api"
         android:name="aslan.aslan.artbooktesting.ui.fragment.artListApi.ArtListApiFragment"
         android:label="@string/art_list_api_fragment"
-        tools:layout="@layout/fragment_art_list_api" >
+        tools:layout="@layout/fragment_art_list_api">
         <action
             android:id="@+id/art_list_api_to_art_details"
-            app:destination="@+id/art_details" />
+            app:destination="@+id/art_details"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/add_art_fragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/preview_image"
         android:name="aslan.aslan.artbooktesting.ui.fragment.preview.PreviewFragment"
         android:label="@string/preview_fragment"
-        tools:layout="@layout/fragment_preview" >
+        tools:layout="@layout/fragment_preview">
         <argument
-            android:name="@string/send_art_other_fragment"
+            android:name="sentArtData"
             app:argType="aslan.aslan.artbooktesting.roomDB.model.entity.Art"
             app:nullable="true" />
     </fragment>
-
+    <action
+        android:id="@+id/main_activity_navigate_to_aboutFragment"
+        app:destination="@+id/about_page" />
+    <fragment
+        android:id="@+id/about_page"
+        android:name="aslan.aslan.artbooktesting.ui.fragment.about.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" />
+    <action
+        android:id="@+id/main_activity_navigate_to_ruleFragment"
+        app:destination="@+id/rule_page" />
+    <fragment
+        android:id="@+id/rule_page"
+        android:name="aslan.aslan.artbooktesting.ui.fragment.rule.RulesFragment"
+        android:label="Rules"
+        tools:layout="@layout/fragment_rules" />
 
 
 </navigation>

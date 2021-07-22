@@ -1,4 +1,4 @@
-package aslan.aslan.artbooktesting.ui.fragment.artListDb
+ package aslan.aslan.artbooktesting.ui.fragment.artListDb
 
 import android.accessibilityservice.AccessibilityService
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.OnLifecycleEvent
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -44,6 +46,8 @@ class ArtListFragment @Inject constructor(
         _binding = FragmentArtListBinding.inflate(inflater, container, false)
         Log.i(TAG, "onCreateView: called")
         subscribeObserverData()
+
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -58,7 +62,7 @@ class ArtListFragment @Inject constructor(
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val layoutPositions = viewHolder.adapterPosition
-            val selectedArt = adapter.arts[layoutPositions]
+            val selectedArt = adapter.currentList[layoutPositions]
             selectedArt.let {
                 viewModel.deleteArt(it)
             }
@@ -95,13 +99,19 @@ class ArtListFragment @Inject constructor(
     }
 
 
+   /* @OnLifecycleEvent(Lifecycle.Event.ON_START)*/
     private fun subscribeObserverData(): Unit = with(viewModel) {
-        fetchImages { artObserver ->
-            artObserver.observe(viewLifecycleOwner, { listArt ->
-                listArt?.let { arts ->
-                    adapter.arts = arts
-                }
-            })
-        }
+        art.observe(viewLifecycleOwner,{
+            it?.let {
+                this@ArtListFragment.adapter.submitList(it)
+            }
+        })
     }
 }
+
+/*
+*   I am trying to reach my short and long term goals consistently.
+    I calmly handle customer complaints and empathy.
+    I proactively participated in new lessons and experience programs and helped create new applications.
+    I am ready to work as a mobile android developer in more projects and experience programs or any company and I am sure that I will do very well.
+* */

@@ -17,6 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 private const val TAG = "ArtListApiFragment"
+
 @AndroidEntryPoint
 class ArtListApiFragment @Inject constructor(
     val glide: RequestManager
@@ -65,7 +66,7 @@ class ArtListApiFragment @Inject constructor(
 
     private fun bindUI(): Unit = with(binding) {
         lifecycleOwner = this@ArtListApiFragment
-
+        viewModelArt = this@ArtListApiFragment.viewModel
 
         ArtApiAdapter(onClickImageApi = {
             Log.d("TAG", "bindUI: ")

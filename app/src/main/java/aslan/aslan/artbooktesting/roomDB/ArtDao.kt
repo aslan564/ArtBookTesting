@@ -13,6 +13,9 @@ interface ArtDao {
     @Delete
     suspend fun deleteArt(art: Art)
 
-    @Query("SELECT * FROM arts")
-    fun getArtListFromDb():LiveData<List<Art>>
+    @Query("SELECT * FROM arts WHERE  id=:key")
+    fun get(key: Long): List<Art>
+
+    @Query("SELECT * FROM arts ORDER BY id DESC")
+    fun getArtListFromDb(): LiveData<List<Art>>
 }

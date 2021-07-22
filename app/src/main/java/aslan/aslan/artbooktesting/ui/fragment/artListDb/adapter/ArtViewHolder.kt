@@ -9,25 +9,29 @@ import aslan.aslan.artbooktesting.roomDB.model.entity.Art
 import aslan.aslan.artbooktesting.util.downloadGlide
 import com.bumptech.glide.RequestManager
 
-class ArtViewHolder(
+class ArtViewHolder private constructor(
     private val binding: LayoutItemArtBinding
 ) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(
         glide: RequestManager?,
-        imageResultPOJO: Art,
+        art: Art,
         onclickImagePOJO: (Art) -> Unit,
     ): Unit = with(binding) {
-        artModel=imageResultPOJO
-        //glide?.load(imageResultPOJO.previewURL)?.into(imageViewArt)
+        artModel=art
+        binding.executePendingBindings()
+
+        /*
+         glide?.load(art.previewURL)?.into(imageViewArt)
         imageViewArt.downloadGlide(imageResultPOJO.previewURL){
             if (it) {
                 progressBar.visibility=GONE
             }
         }
+        */
         root.setOnClickListener {
-            onclickImagePOJO(imageResultPOJO)
+            onclickImagePOJO(art)
         }
 
     }

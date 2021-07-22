@@ -62,7 +62,7 @@ class PreviewFragment @Inject constructor(
 
     private fun subscribeObserver(): Unit = with(viewModel) {
         arguments?.let {
-            val art = PreviewFragmentArgs.fromBundle(it).StringSendArtOtherFragment
+            val art = PreviewFragmentArgs.fromBundle(it).sentArtData
             art?.let { url ->
                 getImageUrl(url = url.largeImageURL,url.name)
                 Log.i(TAG, "subscribeObserver: $url")

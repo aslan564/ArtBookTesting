@@ -27,7 +27,8 @@ fun ImageView.downloadGlide(url: String, onComplete: (Boolean) -> Unit) {
 fun downloadGlideImage(imageView: ImageView, url: String?) {
     url?.let {
         Glide.with(imageView).setDefaultRequestOptions(
-            RequestOptions().placeholder(R.drawable.ic_baseline_broken_image_24)
+            RequestOptions()
+                .placeholder(R.drawable.ic_loading)
                 .error(R.drawable.ic_baseline_broken_image_24)
         ).load(url).into(imageView)
     }

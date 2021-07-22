@@ -17,8 +17,9 @@ class ArtApiViewHolder(
         imageResultPOJO: ImageResultPOJO,
         onclickImagePOJO: (ImageResultPOJO) -> Unit,
     ): Unit = with(binding) {
-        //imageApi = imageResultPOJO
-        glide?.load(imageResultPOJO.previewURL)?.into(imageViewArt)
+        imageApi = imageResultPOJO
+        binding.executePendingBindings()
+        //glide?.load(imageResultPOJO.previewURL)?.into(imageViewArt)
         root.setOnClickListener {
             onclickImagePOJO(imageResultPOJO)
         }

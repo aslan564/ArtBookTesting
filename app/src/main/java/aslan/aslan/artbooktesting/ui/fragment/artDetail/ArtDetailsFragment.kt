@@ -59,7 +59,7 @@ class ArtDetailsFragment @Inject constructor(
         requireActivity().onBackPressedDispatcher.addCallback(callback)
 
         arguments?.let {
-            val artFromApi = ArtDetailsFragmentArgs.fromBundle(it).StringSendArtOtherFragment
+            val artFromApi = ArtDetailsFragmentArgs.fromBundle(it).sendArtOtherFragment
             artFromApi?.let {
                 glide.load(artFromApi.largeImageURL).into(imageViewArt)
             }
@@ -85,7 +85,7 @@ class ArtDetailsFragment @Inject constructor(
                     return@setOnClickListener
                 }
                 arguments?.let { bundle ->
-                    val artFromApi = ArtDetailsFragmentArgs.fromBundle(bundle).StringSendArtOtherFragment
+                    val artFromApi = ArtDetailsFragmentArgs.fromBundle(bundle).sendArtOtherFragment
                     artFromApi?.let {
                         viewModel.addImageToDb(it, name, yearInt, artistName) {
                             navController.navigate(ArtDetailsFragmentDirections.artDetailsFragmentToAddArtFragment())

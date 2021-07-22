@@ -28,10 +28,9 @@ class ImageRepositoryImpl @Inject constructor(
         onComplete(true)
     }
 
-    override fun getAllArtFromDB(onComplete: (LiveData<List<Art>>) -> Unit) {
-        onComplete(artDao.getArtListFromDb())
+    override fun getAllArtFromDB(): LiveData<List<Art>> {
+        return artDao.getArtListFromDb()
     }
-
 
     override suspend fun getAllArtFromApi(): NetworkResult = withContext(Dispatchers.IO)
     {
